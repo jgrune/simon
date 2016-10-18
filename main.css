@@ -1,0 +1,60 @@
+body{
+  margin: 0;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+.circle {
+  height: 80vh;
+  height: 80vh;
+  flex-grow: 1
+}
+
+main {
+  display: flex;
+  width: 100%;
+  flex-wrap: none;
+
+}
+
+#blue {
+  background-color: #78C5D4;
+}
+
+#blue2 {
+  background-color: #459BA6;
+}
+
+#green {
+  background-color: #78C272;
+}
+
+#green2 {
+  background-color: #C4D561;
+}
+
+#yellow {
+  background-color: #F5D55C;
+}
+
+#orange {
+  background-color: #F28B46;
+}
+
+#pink {
+  background-color: #E9679F;
+}
+
+#pink2 {
+  background-color: #C062A2;
+}
+
+
+#clickkMe {
+
+}
+
+#playAgain {
+  display: none;
+}
