@@ -26,7 +26,9 @@ footer {
 }
 
 h1, h3 {
-  margin: 0;
+  margin: 10px;
+  /*padding: 0;
+  line-height: normal;*/
 }
 
 button{
@@ -50,7 +52,9 @@ button{
   flex-grow: 1
 }
 
-
+#roundnumber {
+  animation: test 1s 1;
+}
 
 #blue {
   background-color: #78C5D4;
@@ -82,8 +86,4 @@ button{
 
 #pink2 {
   background-color: #C062A2;
-}
-
-#playAgain {
-  display: none;
 }

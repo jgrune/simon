@@ -4,18 +4,15 @@ $(document).ready(function(){
 var gameData = {
   simonSeq: [],
   userSeq: [],
-
+  round: 1
 }
 
 //set click events
 $('#clickMe').on('click', startGame);
 $('main div').on('click', userSequence);
-$('#playAgain').on('click', function(){
-  window.location.reload();
-});
 
 function startGame(){
-  $('#clickMe').css('display','none');
+  $('.newButton').html("<h1>Round: <span id='roundnumber'>" + gameData.round + "</span></h1>");
   createSequence();
   blinkSequence();
 }
@@ -63,8 +60,12 @@ function checkUser(){
       setTimeout(function () {
         $('body').removeAttr('style');
       }, 500);
-        $('#playAgain').css('display','inline');
+      $('.newButton').html("<button id = 'playAgain'>Play Again</button>");
+
       //function to start over
+      $('#playAgain').on('click', function(){
+        window.location.reload();
+      });
     } else {
       console.log('match');
       nextRound();
@@ -72,6 +73,7 @@ function checkUser(){
 }
 //if match, display success - move to round 2
 function nextRound(){
+  gameData.round++;
   setTimeout(function () {
     startGame();
   }, 1000);
