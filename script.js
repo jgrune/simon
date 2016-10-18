@@ -7,7 +7,7 @@ var gameData = {
 
 }
 
-//start game when button is clicked
+//set click events
 $('#clickMe').on('click', startGame);
 $('main div').on('click', userSequence);
 $('#playAgain').on('click', function(){
@@ -26,6 +26,7 @@ function createSequence(){
   var colorIndex = Math.floor(Math.random()*8);
   gameData.simonSeq.push($('main div').eq(colorIndex).attr('id'))
   // console.log(gameData.simonSeq);
+
 }
 
 function blinkSequence(){
@@ -58,9 +59,9 @@ function checkUser(){
 
     if (x === false){
       console.log('no match');
-      $('div, body').css('background-color', 'red')
+      $('body').css('background-color', '#DF001B')
       setTimeout(function () {
-        $('div, body').removeAttr('style');
+        $('body').removeAttr('style');
       }, 500);
         $('#playAgain').css('display','inline');
       //function to start over

@@ -1,22 +1,56 @@
-body{
-  margin: 0;
-  text-align: center;
-  background-color: black;
-  color: white;
+@font-face{
+font-family:'neon';
+src: url('NEON CLUB MUSIC.otf');
 }
 
-.circle {
-  height: 80vh;
-  height: 80vh;
-  flex-grow: 1
+body{
+  margin: 0;
+  background-color: black;
+  color: white;
+  font-family: neon, sans-serif;
 }
 
 main {
   display: flex;
   width: 100%;
   flex-wrap: none;
-
 }
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 20vh;
+  flex-shrink: 0;
+}
+
+h1, h3 {
+  margin: 0;
+}
+
+button{
+  font-family: neon, sans-serif;
+  font-size: 30px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  margin: 10px 0 0 0;
+  animation: test 1s infinite;
+}
+
+@keyframes test {
+  0% {color: #B70015;}
+  50% {color: white;}
+  100% {color: #B70015;}
+}
+
+.circle {
+  height: 80vh;
+  flex-grow: 1
+}
+
+
 
 #blue {
   background-color: #78C5D4;
@@ -48,11 +82,6 @@ main {
 
 #pink2 {
   background-color: #C062A2;
-}
-
-
-#clickkMe {
-
 }
 
 #playAgain {
