@@ -18,9 +18,9 @@ main {
 footer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  min-height: 20vh;
+  min-height: 25vh;
   flex-shrink: 0;
 }
 
@@ -28,6 +28,13 @@ h1, h3 {
   margin: 10px;
   /*padding: 0;
   line-height: normal;*/
+}
+
+h3>span {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  font-size: 40px;
 }
 
 button{
@@ -47,7 +54,7 @@ button{
 }
 
 .circle {
-  height: 80vh;
+  height: 75vh;
   flex-grow: 1;
   opacity: 0.6;
 }

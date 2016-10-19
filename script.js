@@ -8,12 +8,15 @@ $(document).ready(function(){
     divNum: 8,
   }
 
+  $('h3>span').html(sessionStorage.highscore);
+
   //set click events
   $('#clickMe').on('click', startGame);
   $('main div').on('click', userSequence);
 
   function startGame(){
     $('.newButton').html("<h1>Round: <span id='roundnumber'>" + gameData.round + "</span></h1>");
+    $('h3>span').html(sessionStorage.highscore);
     createSequence();
     blinkSequence();
   }
@@ -26,7 +29,6 @@ $(document).ready(function(){
   }
 
   function blinkSequence(){
-    console.log(gameData.simonSeq);
     gameData.simonSeq.forEach(function(simonColor, i){
       setTimeout(function(){
         $('main div#' + simonColor).fadeTo("500", 1).fadeTo("500", 0.6);
@@ -38,9 +40,7 @@ $(document).ready(function(){
     $(this).fadeTo("500", 1).fadeTo("500", 0.6);
     gameData.userSeq.push($(this).attr('id'))
     if(gameData.userSeq.length < gameData.simonSeq.length){
-      console.log(gameData.userSeq);
     } else {
-      console.log(gameData.userSeq);
       checkUser();
       gameData.userSeq = [];}
     }
@@ -54,7 +54,6 @@ $(document).ready(function(){
         }})
 
         if (x === false){
-          console.log('no match');
           $('body').css('background-color', '#DF001B')
           setTimeout(function () {
             $('body').removeAttr('style');
@@ -75,13 +74,18 @@ $(document).ready(function(){
 
 
         } else {
-          console.log('match');
           nextRound();
         }
       }
       //if match, display success - move to round 2
       function nextRound(){
         gameData.round++;
+
+      //check high score
+        if (!sessionStorage.highscore || (gameData.round > sessionStorage.highscore)){
+          sessionStorage.highscore = gameData.round;
+        }
+
         setTimeout(function () {
           startGame();
         }, 1000);
