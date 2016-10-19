@@ -4,7 +4,8 @@ $(document).ready(function(){
   var gameData = {
     simonSeq: [],
     userSeq: [],
-    round: 1
+    round: 1,
+    divNum: 8,
   }
 
   //set click events
@@ -20,7 +21,7 @@ $(document).ready(function(){
 
   function createSequence(){
     var color;
-    var colorIndex = Math.floor(Math.random()*8);
+    var colorIndex = Math.floor(Math.random()*gameData.divNum);
     gameData.simonSeq.push($('main div').eq(colorIndex).attr('id'))
   }
 
@@ -28,13 +29,13 @@ $(document).ready(function(){
     console.log(gameData.simonSeq);
     gameData.simonSeq.forEach(function(simonColor, i){
       setTimeout(function(){
-        $('main div#' + simonColor).fadeOut("500").fadeIn("500");
+        $('main div#' + simonColor).fadeTo("500", 1).fadeTo("500", 0.6);
       }, 1000 * i);
     })
   }
 
   function userSequence(){
-    $(this).fadeOut("500").fadeIn("500");
+    $(this).fadeTo("500", 1).fadeTo("500", 0.6);
     gameData.userSeq.push($(this).attr('id'))
     if(gameData.userSeq.length < gameData.simonSeq.length){
       console.log(gameData.userSeq);
@@ -64,6 +65,15 @@ $(document).ready(function(){
           $('#playAgain').on('click', function(){
             window.location.reload();
           });
+
+    //blinks random lights for a while
+
+        setInterval(function () {
+          $('main div').eq(Math.floor(Math.random()*gameData.divNum)).fadeTo("500", 1).fadeTo("500", 0.6);
+        }, 100);
+
+
+
         } else {
           console.log('match');
           nextRound();
